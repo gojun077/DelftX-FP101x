@@ -39,15 +39,16 @@ foo = a `div` length xs
 
 -- alternative implementation of built-in function 'last'
 {-
-mylast [] = []
-mylast (x:xs) =
+last' [] = []
+last' (x:xs) =
   if length xs == 1
     then xs
   else tail xs
 -}
 -- the above fails on [1,2,3,4,5], returning [3,4,5]
 -- it also fails on [1] or single-element lists
-
+-- Q: how can I recursively apply 'tail' continuously
+-- against 'xs' until 'xs' is []?
 
 mylast (x:xs) = head (reverse xs)
 
